@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Analysis Center - LOCKSMITH</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Flocksmith2223back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary font-inter min-h-screen">
+    <!-- Global Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-surface/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-semibold text-text-primary">LOCKSMITH</h1>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="password_generator_dashboard.html" class="text-text-secondary hover:text-text-primary transition-colors">Password Generator</a>
+                    <a href="developer_tools_suite.html" class="text-text-secondary hover:text-text-primary transition-colors">Developer Tools</a>
+                    <a href="security_analysis_center.html" class="text-primary-500 font-medium border-b-2 border-primary-500 pb-1">Security Analysis</a>
+                    <a href="settings_and_preferences.html" class="text-text-secondary hover:text-text-primary transition-colors">Settings</a>
+                </nav>
+
+                <!-- Tool Switcher & Theme Toggle -->
+                <div class="flex items-center space-x-3">
+                    <!-- Tool Switcher Dropdown -->
+                    <div class="relative">
+                        <button id="toolSwitcher" class="flex items-center space-x-2 px-3 py-2 bg-surface-700 hover:bg-surface-600 rounded-lg transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm">Tools</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button class="p-2 bg-surface-700 hover:bg-surface-600 rounded-lg transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 bg-surface-700 hover:bg-surface-600 rounded-lg transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 12h18m-9 6h9m-9-12h9"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl font-semibold text-text-primary mb-2">Security Analysis Center</h2>
+                    <p class="text-text-secondary">Comprehensive password security evaluation and breach checking</p>
+                </div>
+                <div class="flex items-center space-x-2 bg-success-500/10 text-success-400 px-3 py-2 rounded-lg">
+                    <div class="w-2 h-2 bg-success-400 rounded-full animate-pulse-security"></div>
+                    <span class="text-sm font-medium">Offline Analysis</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center space-x-2 text-sm text-text-secondary mb-8">
+            <a href="password_generator_dashboard.html" class="hover:text-text-primary transition-colors">Dashboard</a>
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+            </svg>
+            <span class="text-text-primary">Security Analysis</span>
+        </nav>
+
+        <!-- Main Analysis Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left Column - Input & Controls -->
+            <div class="space-y-6">
+                <!-- Password Input -->
+                <div class="bg-surface border border-border rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-text-primary mb-4">Password Analysis</h3>
+                    <div class="relative">
+                        <textarea id="passwordInput" placeholder="Enter password to analyze..." class="w-full bg-surface-700 border border-border rounded-lg px-4 py-3 text-lg font-mono text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none h-24"></textarea>
+                        <button id="clearButton" class="absolute top-3 right-3 p-2 text-text-secondary hover:text-error-400 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-success-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                            <span class="text-sm text-text-secondary">Analysis performed locally</span>
+                        </div>
+                        <button id="analyzeButton" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors haptic-feedback">
+                            Analyze
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Password Personality Mode -->
+                <div class="bg-surface border border-border rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-text-primary mb-4">Password Personality</h3>
+                    <p class="text-sm text-text-secondary mb-4">Generate themed passwords with unique styles</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button class="personality-btn bg-warning-500/10 text-warning-400 border border-warning-500/20 px-4 py-3 rounded-lg hover:bg-warning-500/20 transition-colors text-center">
+                            <svg class="w-5 h-5 mx-auto mb-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <div class="text-sm font-medium">Pirate</div>
+                        </button>
+                        <button class="personality-btn bg-primary-500/10 text-primary-400 border border-primary-500/20 px-4 py-3 rounded-lg hover:bg-primary-500/20 transition-colors text-center">
+                            <svg class="w-5 h-5 mx-auto mb-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                            <div class="text-sm font-medium">Professional</div>
+                        </button>
+                        <button class="personality-btn bg-success-500/10 text-success-400 border border-success-500/20 px-4 py-3 rounded-lg hover:bg-success-500/20 transition-colors text-center">
+                            <svg class="w-5 h-5 mx-auto mb-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                            </svg>
+                            <div class="text-sm font-medium">Gaming</div>
+                        </button>
+                    </div>
+                    <div id="personalityResult" class="mt-4 p-3 bg-surface-700 rounded-lg hidden">
+                        <div class="flex items-center justify-between">
+                            <span id="personalityPassword" class="font-mono text-text-primary"></span>
+                            <button class="p-1 text-text-secondary hover:text-primary-400 transition-colors">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memorization Trainer -->
+                <div class="bg-surface border border-border rounded-lg">
+                    <button id="memoryTrainerToggle" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-700 transition-colors">
+                        <div>
+                            <h3 class="text-lg font-medium text-text-primary">Memorization Trainer</h3>
+                            <p class="text-sm text-text-secondary mt-1">Interactive mini-game to help memorize passwords</p>
+                        </div>
+                        <svg class="w-5 h-5 text-text-secondary transform transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </button>
+                    <div id="memoryTrainerContent" class="hidden px-6 pb-6">
+                        <div class="bg-surface-700 rounded-lg p-4 mb-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm font-medium text-text-primary">Training Password:</span>
+                                <div class="flex items-center space-x-2">
+                                    <button id="audioToggle" class="p-1 text-text-secondary hover:text-primary-400 transition-colors">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                        </svg>
+                                    </button>
+                                    <button id="startTraining" class="bg-accent-500 hover:bg-accent-600 text-white text-sm px-3 py-1 rounded transition-colors">
+                                        Start
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="trainingDisplay" class="font-mono text-lg text-center py-4 text-text-primary">
+                                Click "Start" to begin training
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-text-secondary">
+                            <span>Progress: <span id="trainingProgress">0/0</span></span>
+                            <span>Accuracy: <span id="trainingAccuracy">0%</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Analysis Results -->
+            <div class="space-y-6">
+                <!-- Strength Assessment -->
+                <div class="bg-surface border border-border rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-text-primary mb-4">Strength Assessment</h3>
+                    
+                    <!-- Overall Strength -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-secondary">Overall Strength</span>
+                            <span id="overallStrength" class="text-sm font-medium text-text-secondary">Enter password to analyze</span>
+                        </div>
+                        <div class="w-full bg-surface-700 rounded-full h-3">
+                            <div id="strengthBar" class="bg-text-secondary h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Security Metrics -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-surface-700 rounded-lg p-3">
+                            <div class="text-xs text-text-secondary mb-1">Entropy</div>
+                            <div id="entropyValue" class="text-lg font-mono text-text-primary">0 bits</div>
+                        </div>
+                        <div class="bg-surface-700 rounded-lg p-3">
+                            <div class="text-xs text-text-secondary mb-1">Character Diversity</div>
+                            <div id="diversityValue" class="text-lg font-mono text-text-primary">0/4</div>
+                        </div>
+                        <div class="bg-surface-700 rounded-lg p-3">
+                            <div class="text-xs text-text-secondary mb-1">Length</div>
+                            <div id="lengthValue" class="text-lg font-mono text-text-primary">0</div>
+                        </div>
+                        <div class="bg-surface-700 rounded-lg p-3">
+                            <div class="text-xs text-text-secondary mb-1">Uniqueness</div>
+                            <div id="uniquenessValue" class="text-lg font-mono text-text-primary">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Pattern Detection -->
+                    <div class="bg-surface-700 rounded-lg p-4">
+                        <h4 class="text-sm font-medium text-text-primary mb-3">Pattern Detection</h4>
+                        <div id="patternResults" class="space-y-2">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-text-secondary">Common Patterns</span>
+                                <span id="commonPatterns" class="text-text-primary">None detected</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-text-secondary">Dictionary Words</span>
+                                <span id="dictionaryWords" class="text-text-primary">None found</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-text-secondary">Keyboard Patterns</span>
+                                <span id="keyboardPatterns" class="text-text-primary">None detected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dark Web Checker -->
+                <div class="bg-surface border border-border rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium text-text-primary">Dark Web Check</h3>
+                        <div class="flex items-center space-x-2 text-xs text-text-secondary">
+                            <div class="w-2 h-2 bg-error-400 rounded-full animate-pulse-security"></div>
+                            <span>Mock Data</span>
+                        </div>
+                    </div>
+                    
+                    <div id="breachResults" class="space-y-4">
+                        <div class="bg-surface-700 rounded-lg p-4">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-error-500/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-error-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-text-primary">Breach Status</div>
+                                    <div id="breachStatus" class="text-xs text-text-secondary">Enter password to check</div>
+                                </div>
+                            </div>
+                            <div id="breachDetails" class="text-sm text-text-secondary">
+                                Simulated breach checking against 847 million compromised passwords
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-surface-700 rounded-lg p-3 text-center">
+                                <div class="text-lg font-mono text-warning-400">847M</div>
+                                <div class="text-xs text-text-secondary">Passwords Checked</div>
+                            </div>
+                            <div class="bg-surface-700 rounded-lg p-3 text-center">
+                                <div class="text-lg font-mono text-success-400">0</div>
+                                <div class="text-xs text-text-secondary">Breaches Found</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crack Time Estimator -->
+                <div class="bg-surface border border-border rounded-lg p-6">
+                    <h3 class="text-lg font-medium text-text-primary mb-4">Crack Time Estimates</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-surface-700 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Brute Force Attack</span>
+                                <svg class="w-4 h-4 text-warning-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div id="bruteForceTime" class="text-sm text-text-secondary">Enter password to calculate</div>
+                        </div>
+
+                        <div class="bg-surface-700 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Dictionary Attack</span>
+                                <svg class="w-4 h-4 text-error-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div id="dictionaryTime" class="text-sm text-text-secondary">Enter password to calculate</div>
+                        </div>
+
+                        <div class="bg-surface-700 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Rainbow Tables</span>
+                                <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div id="rainbowTime" class="text-sm text-text-secondary">Enter password to calculate</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-primary-500/10 border border-primary-500/20 rounded-lg">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm text-primary-400">Estimates based on modern hardware capabilities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <div class="w-6 h-6 bg-gradient-to-br from-primary-500 to-primary-700 rounded-md flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/>
+                        </svg>
+                    </div>
+                    <span class="text-text-secondary text-sm">Made by Debo</span>
+                </div>
+                <div class="text-text-secondary text-sm">
+                    © 2025 LOCKSMITH. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // DOM Elements
+        const passwordInput = document.getElementById('passwordInput');
+        const clearButton = document.getElementById('clearButton');
+        const analyzeButton = document.getElementById('analyzeButton');
+        const memoryTrainerToggle = document.getElementById('memoryTrainerToggle');
+        const memoryTrainerContent = document.getElementById('memoryTrainerContent');
+        const personalityButtons = document.querySelectorAll('.personality-btn');
+        const personalityResult = document.getElementById('personalityResult');
+        const personalityPassword = document.getElementById('personalityPassword');
+
+        // Analysis Elements
+        const overallStrength = document.getElementById('overallStrength');
+        const strengthBar = document.getElementById('strengthBar');
+        const entropyValue = document.getElementById('entropyValue');
+        const diversityValue = document.getElementById('diversityValue');
+        const lengthValue = document.getElementById('lengthValue');
+        const uniquenessValue = document.getElementById('uniquenessValue');
+        const commonPatterns = document.getElementById('commonPatterns');
+        const dictionaryWords = document.getElementById('dictionaryWords');
+        const keyboardPatterns = document.getElementById('keyboardPatterns');
+        const breachStatus = document.getElementById('breachStatus');
+        const bruteForceTime = document.getElementById('bruteForceTime');
+        const dictionaryTime = document.getElementById('dictionaryTime');
+        const rainbowTime = document.getElementById('rainbowTime');
+
+        // Memory Trainer Elements
+        const startTraining = document.getElementById('startTraining');
+        const trainingDisplay = document.getElementById('trainingDisplay');
+        const trainingProgress = document.getElementById('trainingProgress');
+        const trainingAccuracy = document.getElementById('trainingAccuracy');
+        const audioToggle = document.getElementById('audioToggle');
+
+        // Clear password input
+        clearButton.addEventListener('click', function() {
+            passwordInput.value = '';
+            resetAnalysis();
+        });
+
+        // Real-time analysis
+        passwordInput.addEventListener('input', function() {
+            if (this.value.trim()) {
+                analyzePassword(this.value);
+            } else {
+                resetAnalysis();
+            }
+        });
+
+        // Analyze button
+        analyzeButton.addEventListener('click', function() {
+            const password = passwordInput.value.trim();
+            if (password) {
+                analyzePassword(password);
+            }
+        });
+
+        // Password analysis function
+        function analyzePassword(password) {
+            const length = password.length;
+            const hasUpper = /[A-Z]/.test(password);
+            const hasLower = /[a-z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSymbols = /[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password);
+
+            // Calculate entropy
+            let charset = 0;
+            if (hasUpper) charset += 26;
+            if (hasLower) charset += 26;
+            if (hasNumbers) charset += 10;
+            if (hasSymbols) charset += 32;
+
+            const entropy = Math.log2(Math.pow(charset, length));
+            entropyValue.textContent = entropy.toFixed(1) + ' bits';
+
+            // Character diversity
+            let diversity = 0;
+            if (hasUpper) diversity++;
+            if (hasLower) diversity++;
+            if (hasNumbers) diversity++;
+            if (hasSymbols) diversity++;
+            diversityValue.textContent = diversity + '/4';
+
+            // Length
+            lengthValue.textContent = length.toString();
+
+            // Calculate uniqueness (simplified)
+            const uniqueChars = new Set(password).size;
+            const uniqueness = (uniqueChars / length * 100);
+            uniquenessValue.textContent = uniqueness.toFixed(0) + '%';
+
+            // Overall strength calculation
+            let score = 0;
+            if (length >= 8) score += 20;
+            if (length >= 12) score += 20;
+            if (length >= 16) score += 20;
+            if (diversity >= 3) score += 20;
+            if (diversity === 4) score += 10;
+            if (uniqueness > 80) score += 10;
+
+            updateStrengthDisplay(score);
+
+            // Pattern detection
+            detectPatterns(password);
+
+            // Breach check (mock)
+            mockBreachCheck(password);
+
+            // Crack time estimates
+            calculateCrackTimes(password, charset);
+        }
+
+        function updateStrengthDisplay(score) {
+            strengthBar.style.width = score + '%';
+
+            if (score < 30) {
+                strengthBar.className = 'bg-error-400 h-3 rounded-full transition-all duration-300';
+                overallStrength.textContent = 'Very Weak';
+                overallStrength.className = 'text-sm font-medium text-error-400';
+            } else if (score < 50) {
+                strengthBar.className = 'bg-warning-400 h-3 rounded-full transition-all duration-300';
+                overallStrength.textContent = 'Weak';
+                overallStrength.className = 'text-sm font-medium text-warning-400';
+            } else if (score < 70) {
+                strengthBar.className = 'bg-warning-400 h-3 rounded-full transition-all duration-300';
+                overallStrength.textContent = 'Medium';
+                overallStrength.className = 'text-sm font-medium text-warning-400';
+            } else if (score < 90) {
+                strengthBar.className = 'bg-success-400 h-3 rounded-full transition-all duration-300';
+                overallStrength.textContent = 'Strong';
+                overallStrength.className = 'text-sm font-medium text-success-400';
+            } else {
+                strengthBar.className = 'bg-primary-400 h-3 rounded-full transition-all duration-300';
+                overallStrength.textContent = 'Military Grade';
+                overallStrength.className = 'text-sm font-medium text-primary-400';
+            }
+        }
+
+        function detectPatterns(password) {
+            // Common patterns
+            const commonPatternsList = ['123', 'abc', 'qwe', 'password', 'admin'];
+            const foundPatterns = commonPatternsList.filter(pattern => 
+                password.toLowerCase().includes(pattern)
+            );
+            commonPatterns.textContent = foundPatterns.length > 0 ? foundPatterns.join(', ') : 'None detected';
+
+            // Dictionary words (simplified check)
+            const commonWords = ['password', 'admin', 'user', 'login', 'welcome', 'hello', 'world'];
+            const foundWords = commonWords.filter(word => 
+                password.toLowerCase().includes(word)
+            );
+            dictionaryWords.textContent = foundWords.length > 0 ? foundWords.join(', ') : 'None found';
+
+            // Keyboard patterns
+            const keyboardPatterns = ['qwerty', 'asdf', 'zxcv', '1234', 'abcd'];
+            const foundKeyboard = keyboardPatterns.filter(pattern => 
+                password.toLowerCase().includes(pattern)
+            );
+            keyboardPatterns.textContent = foundKeyboard.length > 0 ? foundKeyboard.join(', ') : 'None detected';
+        }
+
+        function mockBreachCheck(password) {
+            // Simulate breach checking
+            const isCommon = ['password', '123456', 'admin', 'welcome'].some(common => 
+                password.toLowerCase().includes(common)
+            );
+
+            if (isCommon) {
+                breachStatus.textContent = 'Found in 3 breaches';
+                breachStatus.className = 'text-xs text-error-400';
+            } else {
+                breachStatus.textContent = 'No breaches found';
+                breachStatus.className = 'text-xs text-success-400';
+            }
+        }
+
+        function calculateCrackTimes(password, charset) {
+            const length = password.length;
+            const combinations = Math.pow(charset, length);
+
+            // Brute force (assuming 1 billion attempts per second)
+            const bruteForceSeconds = combinations / (2 * 1000000000);
+            bruteForceTime.textContent = formatTime(bruteForceSeconds);
+
+            // Dictionary attack (faster for common words)
+            const hasDictionaryWords = ['password', 'admin', 'user'].some(word => 
+                password.toLowerCase().includes(word)
+            );
+            const dictionarySeconds = hasDictionaryWords ? Math.min(bruteForceSeconds, 3600) : bruteForceSeconds;
+            dictionaryTime.textContent = formatTime(dictionarySeconds);
+
+            // Rainbow tables (pre-computed hashes)
+            const rainbowSeconds = length <= 8 ? Math.min(bruteForceSeconds, 86400) : bruteForceSeconds;
+            rainbowTime.textContent = formatTime(rainbowSeconds);
+        }
+
+        function formatTime(seconds) {
+            if (seconds < 60) return 'Less than a minute';
+            if (seconds < 3600) return Math.ceil(seconds / 60) + ' minutes';
+            if (seconds < 86400) return Math.ceil(seconds / 3600) + ' hours';
+            if (seconds < 31536000) return Math.ceil(seconds / 86400) + ' days';
+            if (seconds < 31536000000) return Math.ceil(seconds / 31536000) + ' years';
+            return 'Trillions of years';
+        }
+
+        function resetAnalysis() {
+            overallStrength.textContent = 'Enter password to analyze';
+            overallStrength.className = 'text-sm font-medium text-text-secondary';
+            strengthBar.style.width = '0%';
+            strengthBar.className = 'bg-text-secondary h-3 rounded-full transition-all duration-300';
+            
+            entropyValue.textContent = '0 bits';
+            diversityValue.textContent = '0/4';
+            lengthValue.textContent = '0';
+            uniquenessValue.textContent = '0%';
+            
+            commonPatterns.textContent = 'None detected';
+            dictionaryWords.textContent = 'None found';
+            keyboardPatterns.textContent = 'None detected';
+            
+            breachStatus.textContent = 'Enter password to check';
+            breachStatus.className = 'text-xs text-text-secondary';
+            
+            bruteForceTime.textContent = 'Enter password to calculate';
+            dictionaryTime.textContent = 'Enter password to calculate';
+            rainbowTime.textContent = 'Enter password to calculate';
+        }
+
+        // Memory trainer toggle
+        memoryTrainerToggle.addEventListener('click', function() {
+            const content = memoryTrainerContent;
+            const icon = this.querySelector('svg');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Memory trainer functionality
+        let trainingActive = false;
+        let currentPassword = '';
+        let currentIndex = 0;
+        let correctCount = 0;
+        let totalAttempts = 0;
+
+        startTraining.addEventListener('click', function() {
+            if (!trainingActive) {
+                startMemoryTraining();
+            } else {
+                stopMemoryTraining();
+            }
+        });
+
+        function startMemoryTraining() {
+            currentPassword = passwordInput.value.trim() || 'Kx9#mP2$vL8@nQ4!';
+            currentIndex = 0;
+            correctCount = 0;
+            totalAttempts = 0;
+            trainingActive = true;
+            
+            startTraining.textContent = 'Stop';
+            startTraining.className = 'bg-error-500 hover:bg-error-600 text-white text-sm px-3 py-1 rounded transition-colors';
+            
+            showNextCharacter();
+        }
+
+        function stopMemoryTraining() {
+            trainingActive = false;
+            startTraining.textContent = 'Start';
+            startTraining.className = 'bg-accent-500 hover:bg-accent-600 text-white text-sm px-3 py-1 rounded transition-colors';
+            trainingDisplay.textContent = 'Training stopped';
+        }
+
+        function showNextCharacter() {
+            if (!trainingActive || currentIndex >= currentPassword.length) {
+                if (trainingActive) {
+                    trainingDisplay.textContent = 'Training complete!';
+                    stopMemoryTraining();
+                }
+                return;
+            }
+
+            const char = currentPassword[currentIndex];
+            trainingDisplay.textContent = char;
+            trainingDisplay.style.fontSize = '2rem';
+            trainingDisplay.style.color = '#3B82F6';
+            
+            updateTrainingProgress();
+            
+            setTimeout(() => {
+                trainingDisplay.textContent = '?';
+                trainingDisplay.style.color = '#94A3B8';
+                currentIndex++;
+                
+                setTimeout(() => {
+                    if (trainingActive) {
+                        showNextCharacter();
+                    }
+                }, 1000);
+            }, 1500);
+        }
+
+        function updateTrainingProgress() {
+            trainingProgress.textContent = `${currentIndex + 1}/${currentPassword.length}`;
+            const accuracy = totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
+            trainingAccuracy.textContent = accuracy + '%';
+        }
+
+        // Personality password generation
+        personalityButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const personality = this.querySelector('div').textContent;
+                generatePersonalityPassword(personality);
+            });
+        });
+
+        function generatePersonalityPassword(personality) {
+            let password = '';
+            
+            switch(personality) {
+                case 'Pirate':
+                    const pirateWords = ['Ahoy', 'Matey', 'Treasure', 'Ship', 'Rum', 'Gold'];
+                    const pirateSymbols = ['!', '@', '#', '$'];
+                    password = pirateWords[Math.floor(Math.random() * pirateWords.length)] + 
+                              Math.floor(Math.random() * 100) + 
+                              pirateSymbols[Math.floor(Math.random() * pirateSymbols.length)];
+                    break;
+                case 'Professional':
+                    const profWords = ['Secure', 'Business', 'Corporate', 'Executive', 'Success'];
+                    password = profWords[Math.floor(Math.random() * profWords.length)] + 
+                              Math.floor(Math.random() * 1000) + '!';
+                    break;
+                case 'Gaming':
+                    const gameWords = ['Player', 'Victory', 'Quest', 'Level', 'Boss', 'Epic'];
+                    password = gameWords[Math.floor(Math.random() * gameWords.length)] + 
+                              Math.floor(Math.random() * 999) + 'X';
+                    break;
+            }
+            
+            personalityPassword.textContent = password;
+            personalityResult.classList.remove('hidden');
+        }
+
+        // Initialize with empty state
+        resetAnalysis();
+    </script>
+</body>
+</html>

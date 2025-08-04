@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2563EB; /* blue-600 */
+  --color-primary-50: #EFF6FF; /* blue-50 */
+  --color-primary-100: #DBEAFE; /* blue-100 */
+  --color-primary-500: #3B82F6; /* blue-500 */
+  --color-primary-600: #2563EB; /* blue-600 */
+  --color-primary-700: #1D4ED8; /* blue-700 */
+  
+  /* Secondary Colors */
+  --color-secondary: #64748B; /* slate-500 */
+  --color-secondary-400: #94A3B8; /* slate-400 */
+  --color-secondary-500: #64748B; /* slate-500 */
+  --color-secondary-600: #475569; /* slate-600 */
+  
+  /* Accent Colors */
+  --color-accent: #3B82F6; /* blue-500 */
+  --color-accent-400: #60A5FA; /* blue-400 */
+  --color-accent-500: #3B82F6; /* blue-500 */
+  
+  /* Background Colors */
+  --color-background: #0F172A; /* slate-900 */
+  --color-background-800: #1E293B; /* slate-800 */
+  --color-background-900: #0F172A; /* slate-900 */
+  
+  /* Surface Colors */
+  --color-surface: #1E293B; /* slate-800 */
+  --color-surface-700: #334155; /* slate-700 */
+  --color-surface-800: #1E293B; /* slate-800 */
+  
+  /* Text Colors */
+  --color-text-primary: #F8FAFC; /* slate-50 */
+  --color-text-secondary: #94A3B8; /* slate-400 */
+  --color-text-50: #F8FAFC; /* slate-50 */
+  --color-text-400: #94A3B8; /* slate-400 */
+  
+  /* Status Colors */
+  --color-success: #10B981; /* emerald-500 */
+  --color-success-400: #34D399; /* emerald-400 */
+  --color-success-500: #10B981; /* emerald-500 */
+  --color-success-600: #059669; /* emerald-600 */
+  
+  --color-warning: #F59E0B; /* amber-500 */
+  --color-warning-400: #FBBF24; /* amber-400 */
+  --color-warning-500: #F59E0B; /* amber-500 */
+  --color-warning-600: #D97706; /* amber-600 */
+  
+  --color-error: #EF4444; /* red-500 */
+  --color-error-400: #F87171; /* red-400 */
+  --color-error-500: #EF4444; /* red-500 */
+  --color-error-600: #DC2626; /* red-600 */
+  
+  /* Border Colors */
+  --color-border: #334155; /* slate-700 */
+  --color-border-600: #475569; /* slate-600 */
+  --color-border-700: #334155; /* slate-700 */
+}
+
+/* Custom Animation Classes */
+@keyframes pulse-security {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-security {
+  animation: pulse-security 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Micro-interaction Classes */
+.btn-press {
+  transform: scale(0.98);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.haptic-feedback {
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.haptic-feedback:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Progressive Disclosure */
+.expandable-section {
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Contextual Tooltips */
+.tooltip {
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient Overlays */
+.gradient-overlay {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(37, 99, 235, 0.1) 100%);
+}
+
+/* Custom Shadows */
+.shadow-elevation-1 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-elevation-2 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-elevation-3 {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Intelligent Spacing */
+.dynamic-padding {
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.dynamic-margin {
+  margin: clamp(0.5rem, 1.5vw, 1rem);
+}
